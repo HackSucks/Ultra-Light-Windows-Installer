@@ -12,9 +12,10 @@ boot.wim is a stripped down version of Windows called Windows Pre-Installation E
 SO: i decided to remake that. I used the Win10 2004 PE as a base, (which can be acquired by installing the Win10 2004 ADK and its matching PE addon) (and i know the actual PE says 1809, that was some mandela affect, ill fix it later on to reference properly 2004), which is good since: its light, base PE with nothing is ~200MB. i then added a light simple shell (WinXShell), and then the main event:
 # The Installer.
 Basically, it has 2 main components:
-1. The Launcher. this is a main menu that allows you to make partitions for UEFI or BIOS systems, and install a ESD or WIM for the UEFI or BIOS systems. When making a partiton, it will auto mount as C:. also use diskpart > list disk to find the disk number you install to!
+1. The Launcher. this is a main menu that allows you to make partitions for UEFI or BIOS systems, and install a ESD or WIM for the UEFI or BIOS systems. When making a partiton, it will auto mount as C:. The UEFI boot partition will auto mount as S:. also use diskpart > list disk to find the disk number you install to!
 ![Image of the menu](https://hsulwd.on.websim.com/Screenshot%20(14).png)
-2. the installers. these use the open source wimlib project to decompress the ESD or WIM.
+PLEASE NOTE: If you plan to dualboot, DO NOT USE THESE OPTION! THEY ERASE THE WHOLE DRIVE. Instead, use diskpart > ass letter C to the partiton, and skip to:
+3. the installers. these use the open source wimlib project to decompress the ESD or WIM.
 ![Image of the BIOS installer layout](https://hsulwd.on.websim.com/Screenshot%20(16).png)
 ![Image of the UEFI installer layout](https://hsulwd.on.websim.com/Screenshot%20(15).png)
 
